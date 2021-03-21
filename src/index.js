@@ -17,7 +17,7 @@ const store = configureStore({ api });
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <HashRouter>
+      <HashRouter basename="/">
         <GlobalStyle/>
         {children}
       </HashRouter>
