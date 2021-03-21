@@ -9,10 +9,6 @@ export const UsersLayout = () => {
   const usersList = useSelector(state => state.users.users, shallowEqual);
 
   useEffect(() => {
-    console.log('curentPage', curentPage);
-    dispatch(UsersActions.loadPage(curentPage));
-  },[]);
-  useEffect(() => {
     dispatch(UsersActions.loadPage(curentPage));
   },[curentPage]);
 

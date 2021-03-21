@@ -1,13 +1,15 @@
-import {get, post} from '../BaseApi';
+import BaseApi from '../BaseApi';
 
-const getUserProfile = async (baseUrl, username) => {
-  const url = `${baseUrl}/users/${username}`;
-  const result = await get(url, {username});
-  return await result;
+class ProfileApi extends BaseApi {
+  constructor(baseUrl) {
+    super(baseUrl)
+  }
+  async getUserProfile (username)  {
+    const url = `users/${username}`;
+    const result = await this.get(url);
+    return await result;
+  }
+  
 }
 
-const UsersApi = baseUrl => ({
-  getUserProfile: username => getUserProfile(baseUrl, username),
-});
-
-export default UsersApi;
+export default ProfileApi;

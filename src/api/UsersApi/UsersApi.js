@@ -1,13 +1,16 @@
-import {get, post} from '../BaseApi';
+import BaseApi from '../BaseApi';
 
-const getUsers = async (baseUrl, data) => {
-  const url = `${baseUrl}/users`;
-  const result = await get(url, data);
-  return await result;
+class UsersApi extends BaseApi {
+  constructor (baseUrl) {
+    super(baseUrl);
+  }
+
+  async getUsers (data) {
+    const url = `users`;
+    const result = await this.get(url, data);
+    return await result;
+  }
 }
 
-const UsersApi = baseUrl => ({
-  getUsers: (data) => getUsers(baseUrl, data),
-});
 
 export default UsersApi;
