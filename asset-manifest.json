@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/pavelsurga/git-hub-users/static/js/main.be6a7175.chunk.js",
+    "main.js.map": "/pavelsurga/git-hub-users/static/js/main.be6a7175.chunk.js.map",
+    "runtime-main.js": "/pavelsurga/git-hub-users/static/js/runtime-main.089a2587.js",
+    "runtime-main.js.map": "/pavelsurga/git-hub-users/static/js/runtime-main.089a2587.js.map",
+    "static/js/2.2eca21a8.chunk.js": "/pavelsurga/git-hub-users/static/js/2.2eca21a8.chunk.js",
+    "static/js/2.2eca21a8.chunk.js.map": "/pavelsurga/git-hub-users/static/js/2.2eca21a8.chunk.js.map",
+    "index.html": "/pavelsurga/git-hub-users/index.html",
+    "static/js/2.2eca21a8.chunk.js.LICENSE.txt": "/pavelsurga/git-hub-users/static/js/2.2eca21a8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.089a2587.js",
+    "static/js/2.2eca21a8.chunk.js",
+    "static/js/main.be6a7175.chunk.js"
+  ]
+}
