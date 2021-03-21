@@ -6,7 +6,7 @@ import { UsersLayout } from './layouts/UsersLayout';
 export const UsersModule =  {
   getRoutes: () => {
     return (
-      <Route key="/users" path="/users" component={UsersLayout} />
+      <Route key="/users" path="/users/:page" component={UsersLayout} />
     );
   }
 }

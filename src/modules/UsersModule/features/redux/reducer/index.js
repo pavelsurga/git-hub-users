@@ -6,7 +6,8 @@ function reducer(state = initialState, action) {
     case actionTypes.LOAD_USERS:
       return {
         ...state,
-        users: {...state.users, [action.payload.page]: action.payload.userList },
+        userList: action.payload.userList,
+        total: action.payload.total,
       };
     case actionTypes.CHANGE_PAGE:
       return {

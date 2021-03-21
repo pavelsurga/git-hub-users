@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import { actions as UsersActions } from '../features';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import { List, ListItem } from '@material-ui/core';
+import UserList from '../../../components/UserList/UserList';
 
-export const UsersLayout = () => {
+export const UsersLayout = ({ match }) => {
   const dispatch = useDispatch();
-
-  const curentPage = useSelector(state => state.users.currentPage, shallowEqual);
-  const usersList = useSelector(state => state.users.users, shallowEqual);
+  const userList = useSelector(state => state.users.userList, shallowEqual);
 
   useEffect(() => {
-    dispatch(UsersActions.loadPage(curentPage));
-  },[curentPage]);
+    dispatch(UsersActions.loadPage(Number(match.params.page)));
+  },[match.params.page]);
 
-  return (<div>USERS LAYOUT</div>);
+  return (<UserList users={userList}/>);
 };

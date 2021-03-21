@@ -1,8 +1,7 @@
 const initialState = {
-  users: {
-  },
-  currentPage: 0,
-  range: 10, 
+  userList: [],
+  currentPage: null,
+  total: 0,
 };
 
 

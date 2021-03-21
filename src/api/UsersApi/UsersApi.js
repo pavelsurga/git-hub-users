@@ -6,8 +6,9 @@ class UsersApi extends BaseApi {
   }
 
   async getUsers (data) {
-    const url = `users`;
-    const result = await this.get(url, data);
+    const newData = {...data, q: `type:user`}
+    const url = `search/users`;
+    const result = await this.get(url, newData);
     return await result;
   }
 }
