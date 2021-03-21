@@ -1,13 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./shared/style/index.css";
-import App from "./App";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { createRoutes } from "./createRoutes";
 import { configureStore } from "./configureStore";
 import createApi from "./api";
 import { modules } from "./modules";
+import { GlobalStyle } from './shared/style/index.style';
 
 const children = createRoutes(modules);
 
@@ -19,7 +18,8 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <App>{children}</App>
+        <GlobalStyle/>
+        {children}
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,
