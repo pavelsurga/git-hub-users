@@ -2,6 +2,7 @@ const initialState = {
   userList: [],
   currentPage: null,
   total: 0,
+  actionProcessing: true,
 };
 
 

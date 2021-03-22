@@ -1,22 +1,39 @@
-import React, { useEffect } from "react";
-import { actions as UsersActions } from "../features";
-import { useDispatch, useSelector, shallowEqual } from "react-redux";
+import React, { useCallback } from "react";
+import { useUsersDataRequest } from '../hooks/useUsersDataRequest';
 import UserList from "../../../components/UserList/UserList";
-import Paginator from "../features/pagination/Paginator";
+import Pagination from "@material-ui/lab/Pagination";
+import { ListWrapper } from "./UsersLayout.style";
+import { useHistory } from "react-router";
+import Spinner from "../../../components/Spinner/Spinner";
 
 export const UsersLayout = ({ match }) => {
-  const dispatch = useDispatch();
-  const userList = useSelector((state) => state.users.userList, shallowEqual);
-  const usersCount = useSelector((state) => state.users.total, shallowEqual);
 
-  useEffect(() => {
-    dispatch(UsersActions.loadPage(Number(match.params.page)));
-  }, [match.params.page]);
+  const history = useHistory();
+
+  const navigateToPage = useCallback(page => {
+    history.push(`/users/${page}`);
+  }, [history]);
+
+  const page = Number(match.params.page);
+
+  const {userList, pagesCount, loading} = useUsersDataRequest(page, navigateToPage);
+
+  if (loading) {
+    return <Spinner />
+  }
 
   return (
     <>
-      <UserList users={userList} />
-      <Paginator currentPage={match.params.page} usersCount={usersCount} />
+      <ListWrapper>
+        <UserList users={userList} />
+      </ListWrapper>
+      <Pagination
+        count={pagesCount}
+        page={page}
+        onChange={(_, page) => navigateToPage(page)}
+        showFirstButton
+        showLastButton
+      />
     </>
   );
 };

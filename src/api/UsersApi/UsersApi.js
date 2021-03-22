@@ -5,11 +5,19 @@ class UsersApi extends BaseApi {
     super(baseUrl);
   }
 
-  async getUsers (data) {
-    const newData = {...data, q: `type:user`}
+  async getUsersCount () {
+    const newData = { per_page:1, q: `type:user`}
     const url = `search/users`;
     const result = await this.get(url, newData);
-    return await result;
+    return result.success ? {
+      success: true,
+      data: result.data.total_count
+    } : result;
+  }
+  async getUsers (data) {
+    const url = `users`;
+    const result = await this.get(url, data);
+    return result;
   }
 }
 

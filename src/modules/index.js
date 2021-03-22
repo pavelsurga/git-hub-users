@@ -5,8 +5,8 @@ import { reducer as UsersReducer } from './UsersModule/features';
 import { reducer as ProfileReducer } from './ProfileModule/features';
 
 const modules  = [
-  ProfileModule,
-  UsersModule
+  UsersModule,
+  ProfileModule
 ];
 
 

@@ -1,7 +1,8 @@
 
 const actionTypes = {
   LOAD_USER: 'profile/LOAD_USER',
-  
+  ERROR: 'profile/ERROR',
+  ACTION_PROCESSING: 'profile/ACTION_PROCESSING',
 };
 
 const loadProfile = username => async (dispatch, getState, extra) => {
@@ -10,8 +11,15 @@ const loadProfile = username => async (dispatch, getState, extra) => {
   if(currentUser && currentUser.login === username) {
     return
   }
+  dispatch({ type: actionTypes.ACTION_PROCESSING, payload: true });
   const response = await api.getUserProfile(username);
-  dispatch({ type: actionTypes.LOAD_USER, payload: response })
+  if (!response.success) {
+    dispatch({type: actionTypes.ERROR, payload: response.message });
+    return
+  }
+  dispatch({ type: actionTypes.LOAD_USER, payload: response.data });
+  dispatch({ type: actionTypes.ACTION_PROCESSING, payload: false });
+
 }
 
 

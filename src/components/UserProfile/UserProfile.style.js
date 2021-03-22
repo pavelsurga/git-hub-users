@@ -6,7 +6,6 @@ const Layout = styled(Paper)`
   width: 100%;
   flex-direction:row;
   padding: 0.5rem;
-  border: 1px solid black;
 `;
 
 const AvatarContainer = styled.div`

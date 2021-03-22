@@ -18,7 +18,11 @@ class BaseApi {
       redirect: "follow", // manual, *follow, error
       referrerPolicy: "no-referrer", // no-referrer, *client
     });
-    return await response.json();
+    const responseData = await response.json();
+    if (!response.ok) {
+      return { success: false , message: responseData.message }
+    }
+    return { success: true, data: responseData };
   }
 }
 

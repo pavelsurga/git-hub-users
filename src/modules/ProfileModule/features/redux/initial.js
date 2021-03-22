@@ -1,5 +1,7 @@
 const initialState = {
   userData: {},
+  error: null,
+  actionProcessing: true,
 };
 
 
